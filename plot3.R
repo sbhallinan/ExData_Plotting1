@@ -1,0 +1,10 @@
+data <- read.csv("household_power_consumption.txt", header=TRUE,sep=";")
+
+attach(data)
+png(file = "plot3.png", height = 480, width = 480)
+plot(Sub_metering_1, type="l", ylab = "Energy sub metering", xaxt="n", xlab="")
+lines(Sub_metering_2, col="red")
+lines(Sub_metering_3, col="blue")
+axis(1, at = c(1,length(Global_active_power)/2,length(Global_active_power)), labels = c("Thur","Fri","Sat"))
+legend("topright", legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), col = c("black","red","blue"), lwd=1)
+dev.off()
